@@ -2,6 +2,9 @@ import pandas as pd
 import yfinance as yf
 from datetime import date
 
+'''
+video: https://youtu.be/yrNH9JkjSr0
+'''
 
 # --- 1) Download and save historical data of Apple
 def basic_download():
@@ -31,3 +34,4 @@ def download_from_date():
     return range_df
 
 #from_date = download_from_date()
+
