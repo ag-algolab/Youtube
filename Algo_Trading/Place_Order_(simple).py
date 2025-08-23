@@ -1,6 +1,7 @@
 # ============================================
 # MT5 - Open and Close a Market Order (Simple)
 # ============================================
+import time
 
 import MetaTrader5 as mt5
 import os
@@ -17,7 +18,7 @@ SYMBOL = "BTCUSD"
 VOLUME = 0.10
 DEVIATION = 20
 COMMENT = "Basic order"
-MAGIC = 101   # random magic number
+MAGIC = 101  # random magic number
 
 # --- Init ---
 if not mt5.initialize(login=ACCOUNT_LOGIN, server=ACCOUNT_SERVER, password=ACCOUNT_PASSWORD):
@@ -37,8 +38,13 @@ buy_request = {
     "magic": MAGIC,
     "comment": COMMENT,
     "type_time": mt5.ORDER_TIME_GTC,
-    "type_filling": mt5.ORDER_FILLING_FOK,
+    "type_filling": mt5.ORDER_FILLING_IOC,
 }
+
+buy_result = mt5.order_send(buy_request)
+print("BUY result:", buy_result)
+
+
 
 # --- Close the order (send SELL of same volume) ---
 close_request = {
@@ -47,16 +53,12 @@ close_request = {
     "volume": VOLUME,
     "type": mt5.ORDER_TYPE_SELL,
     "price": mt5.symbol_info_tick(SYMBOL).bid,
+    "position": buy_result.order,
     "deviation": DEVIATION,
-    "magic": MAGIC,
     "comment": "Close order",
     "type_time": mt5.ORDER_TIME_GTC,
-    "type_filling": mt5.ORDER_FILLING_FOK,
+    "type_filling": mt5.ORDER_FILLING_IOC,
 }
-
-# ===== Execution =====
-buy_result = mt5.order_send(buy_request)
-print("BUY result:", buy_result)
 
 close_result = mt5.order_send(close_request)
 print("CLOSE result:", close_result)
