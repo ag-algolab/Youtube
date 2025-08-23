@@ -10,7 +10,9 @@ TIMEFRAME = mt5.TIMEFRAME_M15
 COUNT = 5000
 CSV_FILE = f"{SYMBOL}_ohlc.csv"
 
-
+if not mt5.symbol_select(SYMBOL, True):
+    raise RuntimeError(f"symbol_select failed for {symbol}")
+        
 # --- Convert the Numpy Array to a DataFrame ---
 def to_df(rates):
     df = pd.DataFrame(rates)
