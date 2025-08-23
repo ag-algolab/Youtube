@@ -3,20 +3,21 @@
 # ============================================
 
 import MetaTrader5 as mt5
-from datetime import datetime
 import os
+import random
 from dotenv import load_dotenv
 
 # --- Config ---
 load_dotenv()
-ACCOUNT_LOGIN    = int(os.getenv("MT5_LOGIN")) 
+ACCOUNT_LOGIN    = int(os.getenv("MT5_LOGIN"))
 ACCOUNT_PASSWORD = os.getenv("MT5_PASSWORD")
-ACCOUNT_SERVER   = os.getenv("MT5_SERVER") 
+ACCOUNT_SERVER   = os.getenv("MT5_SERVER")
 
 SYMBOL = "BTCUSD"
 VOLUME = 0.10
 DEVIATION = 20
 COMMENT = "Basic order"
+MAGIC = 101   # random magic number
 
 # --- Init ---
 if not mt5.initialize(login=ACCOUNT_LOGIN, server=ACCOUNT_SERVER, password=ACCOUNT_PASSWORD):
@@ -33,11 +34,11 @@ buy_request = {
     "type": mt5.ORDER_TYPE_BUY,
     "price": mt5.symbol_info_tick(SYMBOL).ask,
     "deviation": DEVIATION,
+    "magic": MAGIC,
     "comment": COMMENT,
     "type_time": mt5.ORDER_TIME_GTC,
     "type_filling": mt5.ORDER_FILLING_FOK,
 }
-
 
 # --- Close the order (send SELL of same volume) ---
 close_request = {
@@ -45,17 +46,15 @@ close_request = {
     "symbol": SYMBOL,
     "volume": VOLUME,
     "type": mt5.ORDER_TYPE_SELL,
-    "position": buy_result.order,   # close the opened position
     "price": mt5.symbol_info_tick(SYMBOL).bid,
     "deviation": DEVIATION,
+    "magic": MAGIC,
     "comment": "Close order",
     "type_time": mt5.ORDER_TIME_GTC,
     "type_filling": mt5.ORDER_FILLING_FOK,
 }
 
-
 # ===== Execution =====
-
 buy_result = mt5.order_send(buy_request)
 print("BUY result:", buy_result)
 
