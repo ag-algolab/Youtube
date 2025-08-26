@@ -1,5 +1,5 @@
 # ============================================
-# MT5 - Magic demo: open 2, close only MAGIC_A
+# MT5 - Magic demo: open 2, close only  1 MAGIC
 # ============================================
 import time
 import MetaTrader5 as mt5
