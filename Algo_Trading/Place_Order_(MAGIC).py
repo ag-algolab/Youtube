@@ -49,7 +49,7 @@ r2 = open_order(mt5.ORDER_TYPE_BUY,  MAGIC_B, f"{COMMENT} B")
 print("OPEN A:", r1)
 print("OPEN B:", r2)
 
-time.sleep(0.5)  # laisse MT5 créer la/les positions
+time.sleep(0.5)  
 
 # --- Close only positions belonging to MAGIC_A ---
 def close_order(magic):
