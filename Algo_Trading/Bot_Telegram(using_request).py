@@ -1,8 +1,13 @@
 import requests
 
+# WARNING:
+# This is a minimal educational example.
+# Never hardcode your TOKEN or CHAT_ID in public repositories.
+# Always use environment variables (.env file) for security.
+
 def send_message(message):
-  id = int()
-  token = str()
+  id = int(XXXXXXXX)    
+  token = str(XXXXXXXX)
   url =  f'https://api.telegram.org/bot{token}/sendMessage'
   data = {'chat_id': id, 'text': message}
   try:
