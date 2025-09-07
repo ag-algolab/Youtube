@@ -1,6 +1,7 @@
 
 # AG Algo Lab — simple Telegram sender using python-telegram-bot (v21+)
 
+import asyncio
 from telegram import Bot
 from telegram.error import TelegramError
 
@@ -42,7 +43,7 @@ def send_document(file_path: str, caption: str | None = None):
 
 # ----------------------------- Execution -------------------------------
 
-
+asyncio.run(send_message("Hello from python-telegram-bot 🚀"))
 
 
 
