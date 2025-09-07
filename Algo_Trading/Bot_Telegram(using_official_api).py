@@ -10,17 +10,17 @@ from telegram.error import TelegramError
 # Never hardcode your TOKEN or CHAT_ID in public repositories.
 # Always use environment variables (.env file) for security
 
-TG_TOKEN = str(XXXXX)
-TG_CHAT_ID = int(XXXXX)
+TG_TOKEN = "XXXXX"
+TG_CHAT_ID = XXXXX
 
-def send_message(text: str):
+async def send_message(text: str):
     bot = Bot(token=TG_TOKEN)
     try:
         await bot.send_message(chat_id=TG_CHAT_ID, text=text)
     except TelegramError as e:
         raise RuntimeError(f"Telegram send failed: {e}") from e
 
-def send_photo(photo_path_or_url: str, caption: str | None = None):
+async def send_photo(photo_path_or_url: str, caption: str | None = None):
     bot = Bot(token=TG_TOKEN)
     try:
         if photo_path_or_url.lower().startswith(("http://", "https://")):
@@ -31,7 +31,7 @@ def send_photo(photo_path_or_url: str, caption: str | None = None):
     except TelegramError as e:
         raise RuntimeError(f"Telegram photo failed: {e}") from e
 
-def send_document(file_path: str, caption: str | None = None):
+async def send_document(file_path: str, caption: str | None = None):
     bot = Bot(token=TG_TOKEN)
     try:
         with open(file_path, "rb") as f:
@@ -44,7 +44,3 @@ def send_document(file_path: str, caption: str | None = None):
 # ----------------------------- Execution -------------------------------
 
 asyncio.run(send_message("Hello from python-telegram-bot 🚀"))
-
-
-
-
