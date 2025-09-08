@@ -1,5 +1,3 @@
-# sync_vs_async.py
-
 import time
 import asyncio
 
@@ -22,7 +20,7 @@ async def async_task(i: int):
     print(f"End task {i}")
 
 # With .gather
-async def async_demo(): # Coroutine Object 
+async def async_demo_1(): # Coroutine Object
     print("=== Asynchronous demo ===")
     start = time.time()
     tasks = [async_task(i) for i in range(4)]
@@ -31,13 +29,13 @@ async def async_demo(): # Coroutine Object
     print(f"Total time (async): {end - start:.2f} seconds\n")
 
 # With .create_task
-async def async_demo(): # Coroutine Object 
+async def async_demo_2(): # Coroutine Object
     print("=== Asynchronous demo ===")
     start = time.time()
-    tasks0 =  asyncio.create_task(async_task(0)) 
-    tasks1 =  asyncio.create_task(async_task(1)) 
-    tasks2 =  asyncio.create_task(async_task(2)) 
-    tasks3 =  asyncio.create_task(async_task(3)) 
+    task0 =  asyncio.create_task(async_task(0))
+    task1 =  asyncio.create_task(async_task(1))
+    task2 =  asyncio.create_task(async_task(2))
+    task3 =  asyncio.create_task(async_task(3))
     await task0
     await task1
     await task2
@@ -47,4 +45,5 @@ async def async_demo(): # Coroutine Object
 
 
 sync_demo()
-asyncio.run(async_demo())
+asyncio.run(async_demo_1())
+asyncio.run(async_demo_2())
