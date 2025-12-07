@@ -1,3 +1,9 @@
+'''
+video [en]: https://youtu.be/_HdrjqHIj_o?si=mVpS83L4ksl13AcB
+video [fr]: https://youtu.be/lYZ3gSxqSMk?si=8iqVDgb1OXPKVYX2
+'''
+
+
 import MetaTrader5 as mt5
 import pandas as pd
 from tqdm import tqdm
