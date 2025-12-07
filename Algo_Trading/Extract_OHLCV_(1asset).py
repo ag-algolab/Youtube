@@ -2,6 +2,11 @@ import MetaTrader5 as mt5
 import pandas as pd
 from datetime import datetime, timedelta
 
+'''
+video [en]: https://youtu.be/RMfvQH0fzS8?si=CQw_p1rRHJqpxPSi
+video [fr]: https://youtu.be/mdbJxOc0yvY?si=qkxqPmkrCWCXUy8Y
+'''
+
 mt5.initialize()
 
 # --- Config (edit as needed) ---
