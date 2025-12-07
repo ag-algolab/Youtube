@@ -1,5 +1,9 @@
 import requests
 
+'''
+video [en]: https://youtu.be/nzejSoiGrd8?si=_TTxCgEVeNPSzZND
+video [fr]: https://youtu.be/nzejSoiGrd8?si=QCPm59Rxoiq-abS_
+'''
 # WARNING:
 # This is a minimal educational example.
 # Never hardcode your TOKEN or CHAT_ID in public repositories.
