@@ -25,7 +25,6 @@ The topics mainly cover:
 - 🧠 **Deep Learning & AI in Finance** (LSTM, RNN,... applied to financial time series)
 
 Not every video has an equivalent script on GitHub — when the code is very simple, no .py file is provided.
-For each script included here, the corresponding YouTube video link (French & English) is mentioned at the top of the file.
 
 ---
 
@@ -39,4 +38,3 @@ Les thématiques abordées :
 - 🧠 **Deep Learning & IA appliqués à la finance** (LSTM, RNN,...  pour séries temporelles financières)
 
 Toutes les vidéos n’ont pas forcément un script équivalent sur GitHub — lorsque le code est très simple, aucun fichier .py n’est fourni.
-Pour chaque script présent ici, le lien vers la vidéo correspondante (FR & EN) est indiqué au début du fichier.
